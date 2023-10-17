@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    image: python-web-app
+    container_name: create_game
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+  
+  game:
+    container_name: script
+    image: python-rps
+    build:
+      context: .
+      dockerfile: Dockerfile.game
