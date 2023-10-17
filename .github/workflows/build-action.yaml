@@ -32,4 +32,26 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/IPaul32/docker_build:1
+          tags: ghcr.io/ipaul32/docker_build:1
+
+      - name: Slack notification SUCCESS
+        uses: rtCamp/action-slack-notify@v2
+        if: success()
+        env:
+          SLACK_CHANNEL: notification_github
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Pushing build_docker:${{ github.ref_name }} image is SUCCESS'
+          SLACK_TITLE: Post Title
+          SLACK_USERNAME: rtCamp
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Slack notification FAIL
+        uses: rtCamp/action-slack-notify@v2
+        if: failure()
+        env:
+          SLACK_CHANNEL: notification_github
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Pushing build_docker:${{ github.ref_name }} image is FAIL'
+          SLACK_TITLE: Post Title
+          SLACK_USERNAME: rtCamp
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
