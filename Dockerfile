@@ -10,6 +10,6 @@ RUN echo -e "#!/bin/bash\npython /python-game/app.py" > /python-game/app && chmo
 
 FROM python:3.9-slim
 
-COPY --from=builder /app/app /usr/local/bin/
+COPY --from=builder /python-game/app /usr/local/bin/
 
 CMD ["app"]
