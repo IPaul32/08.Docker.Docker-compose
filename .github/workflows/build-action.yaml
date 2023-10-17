@@ -40,6 +40,7 @@ jobs:
         env:
           SLACK_CHANNEL: github_action
           SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_COLOR: ${{ job.status }}
           SLACK_MESSAGE: 'Pushing build_docker:${{ github.ref_name }} image is SUCCESS'
           SLACK_TITLE: Post Title
           SLACK_USERNAME: rtCamp
@@ -51,6 +52,7 @@ jobs:
         env:
           SLACK_CHANNEL: github_action
           SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_COLOR: ${{ job.status }}
           SLACK_MESSAGE: 'Pushing build_docker:${{ github.ref_name }} image is FAIL'
           SLACK_TITLE: Post Title
           SLACK_USERNAME: rtCamp
