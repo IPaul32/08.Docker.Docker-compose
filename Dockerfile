@@ -1,6 +1,6 @@
 FROM python:3.9 as builder
 
-LABEL marchik32@gmail.com
+LABEL MAINTAINER="marchik32@gmail.com"
 
 WORKDIR /python-game
 
