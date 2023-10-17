@@ -6,7 +6,7 @@ WORKDIR /python-game
 
 COPY app/app.py .
 
-RUN echo -e "#!/bin/bash\npython /app/app.py" > /app/app && chmod +x /app/app
+RUN echo -e "#!/bin/bash\npython /python-game/app.py" > /python-game/app && chmod +x /python-game/app
 
 FROM python:3.9-slim
 
